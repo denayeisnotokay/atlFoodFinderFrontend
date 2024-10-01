@@ -34,7 +34,7 @@
                             <details class="dropdown dropdown-end">
                                 <summary class="after:hidden flex flex-row gap-1">
                                     <span>My Account</span>
-                                    <svg class="feather-sm">
+                                    <svg class="feather-sm chevron">
                                         <use href="./icons/feather-sprite.svg#chevron-down" />
                                     </svg>
                                 </summary>
@@ -118,9 +118,9 @@
                     </svg>
                 </button>
             </div>
-            <div id="search" class="absolute inset-y-4 right-4 card bg-base-100 w-96 max-w-[calc(100vw-7rem)] shadow-xl hidden">
+            <div id="search" class="absolute inset-y-4 right-4 card bg-base-100 w-[32rem] max-w-[calc(100vw-7rem)] shadow-xl">
                 <div class="card-body h-full p-0 pb-4">
-                    <label class="bg-base-200 input input-bordered input-secondary flex items-center gap-2 m-6 mb-2">
+                    <label class="input input-bordered input-secondary m-6 mb-1">
                         <input id="searchBar" type="text" class="grow" placeholder="Search..." />
                         <button class="btn btn-secondary btn-ghost min-h-0 size-8 p-0">
                             <svg class="feather-sm">
@@ -128,11 +128,155 @@
                             </svg>
                         </button>
                     </label>
+                    <div id="controls" class="flex flex-row items-end gap-2 px-6">
+                        <fieldset class="grow">
+                            <legend>Find:</legend>
+                            <details class="dropdown w-full">
+                                <summary class="list-none input input-secondary input-bordered m-1">
+                                    <span class="grow">Most Popular</span>
+                                    <svg class="feather-sm chevron">
+                                        <use href="./icons/feather-sprite.svg#chevron-down" />
+                                    </svg>
+                                </summary>
+                                <ul class="menu dropdown-content bg-base-200 rounded-box z-[1] w-full p-2 shadow min-w-max gap-1">
+                                    <li>
+                                        <label class="flex flex-row">
+                                            <span class="grow">Most Popular</span>
+                                            <svg class="feather-sm">
+                                                <use href="./icons/feather-sprite.svg#check" />
+                                            </svg>
+                                            <input type="radio" name="find" class="hidden" />
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="flex flex-row">
+                                            <span class="grow">Closest</span>
+                                            <svg class="feather-sm">
+                                                <use href="./icons/feather-sprite.svg#check" />
+                                            </svg>
+                                            <input type="radio" name="find" class="hidden" />
+                                        </label>
+                                    </li>
+                                </ul>
+                            </details>
+                        </fieldset>
+                        <fieldset class="grow">
+                            <legend>Sort by:</legend>
+                            <details class="dropdown w-full">
+                                <summary class="list-none input input-secondary input-bordered m-1">
+                                    <span class="grow">None</span>
+                                    <svg class="feather-sm chevron">
+                                        <use href="./icons/feather-sprite.svg#chevron-down" />
+                                    </svg>
+                                </summary>
+                                <ul class="menu dropdown-content bg-base-200 rounded-box z-[1] w-full p-2 shadow min-w-max gap-1">
+                                    <li>
+                                        <label class="flex flex-row">
+                                            <span class="grow">None</span>
+                                            <svg class="feather-sm">
+                                                <use href="./icons/feather-sprite.svg#check" />
+                                            </svg>
+                                            <input type="radio" name="sort" class="hidden" />
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="flex flex-row">
+                                            <span class="grow">Distance</span>
+                                            <svg class="feather-sm">
+                                                <use href="./icons/feather-sprite.svg#check" />
+                                            </svg>
+                                            <input type="radio" name="sort" class="hidden" />
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="flex flex-row">
+                                            <span class="grow">Rating</span>
+                                            <svg class="feather-sm">
+                                                <use href="./icons/feather-sprite.svg#check" />
+                                            </svg>
+                                            <input type="radio" name="sort" class="hidden" />
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="flex flex-row">
+                                            <span class="grow">Price</span>
+                                            <svg class="feather-sm">
+                                                <use href="./icons/feather-sprite.svg#check" />
+                                            </svg>
+                                            <input type="radio" name="sort" class="hidden" />
+                                        </label>
+                                    </li>
+                                </ul>
+                            </details>
+                        </fieldset>
+                        <fieldset class="grow-0">
+                            <details class="dropdown dropdown-end w-full">
+                                <summary class="btn btn-secondary btn-flat m-1">
+                                    <svg class="feather-md">
+                                        <use href="./icons/feather-sprite.svg#filter" />
+                                    </svg>
+                                </summary>
+                                <ul class="menu dropdown-content bg-base-200 rounded-box z-[1] w-full p-2 shadow min-w-max gap-1">
+                                    <li class="transition-colors">
+                                        <label class="flex flex-row">
+                                            <span class="grow">Distance</span>
+                                            <svg class="feather-sm">
+                                                <use href="./icons/feather-sprite.svg#check" />
+                                            </svg>
+                                            <input type="checkbox" name="distance" class="hidden" />
+                                        </label>
+                                    </li>
+                                    <li class="transition-colors">
+                                        <label class="flex flex-row">
+                                            <span class="grow">Rating</span>
+                                            <svg class="feather-sm">
+                                                <use href="./icons/feather-sprite.svg#check" />
+                                            </svg>
+                                            <input type="checkbox" name="rating" class="hidden" />
+                                        </label>
+                                    </li>
+                                    <li class="transition-colors">
+                                        <label class="flex flex-row">
+                                            <span class="grow">Price</span>
+                                            <svg class="feather-sm">
+                                                <use href="./icons/feather-sprite.svg#check" />
+                                            </svg>
+                                            <input type="checkbox" name="price" class="hidden" />
+                                        </label>
+                                    </li>
+                                    <li class="transition-colors">
+                                        <label class="flex flex-row">
+                                            <span class="grow">Open</span>
+                                            <svg class="feather-sm">
+                                                <use href="./icons/feather-sprite.svg#check" />
+                                            </svg>
+                                            <input type="checkbox" name="open" class="hidden" />
+                                        </label>
+                                    </li>
+                                </ul>
+                            </details>
+                        </fieldset>
+                    </div>
+                    <div id="distance">
+                        <label>
+                            Max distance
+                            <input type="range" min="0" max="100" value="40" class="range range-secondary" />
+                        </label>
+                    </div>
+                    <div id="rating">
+
+                    </div>
+                    <div id="price">
+
+                    </div>
+                    <div id="open">
+
+                    </div>
                     <ul id="results" class="grow w-full menu menu-vertical gap-2 overflow-scroll flex-nowrap px-6 scroll-shadow">
                         <!-- RESTAURANT RESULTS GO HERE -->
                         <li>
                             <div class="card-body h-full justify-center bg-base-200 bg-opacity-50 hover:bg-opacity-70 active:bg-opacity-80 transition-colors">
-                                <h2 class="card-title grow-0">${ sortedRestaurants[i].name }</h2>
+                                <h2 class="card-title grow-0 text-4xl">${ sortedRestaurants[i].name }</h2>
                                 <p class="grow-0 ${ sortedRestaurants[i].opening_hours.open_now ? 'text-success' : 'text-error' }">${ sortedRestaurants[i].opening_hours.open_now ? 'Open' : 'Closed' }</p>
                                 <p class="grow-0">${ sortedRestaurants[i].vicinity }</p>
                                 ${ sortedRestaurants[i].rating ? `<p class="flex flex-row gap-1 grow-0 items-center">
@@ -144,8 +288,8 @@
                     </ul>
                 </div>
             </div>
-            <div id="details" class="absolute inset-y-4 right-4 card bg-base-100 w-96 max-w-[calc(100vw-7rem)] shadow-xl">
-                <figure class="max-h-60">
+            <div id="details" class="hidden absolute inset-y-4 right-4 card bg-base-100 w-96 max-w-[calc(100vw-7rem)] shadow-xl">
+                <figure class="max-h-60 shrink-0">
                     <img src="./images/placeholder.jpg" alt="Restaurant Image" />
                     <button class="absolute top-4 left-4 btn btn-ghost min-h-0 min-w-0 size-10 p-2">
                         <svg class="feather-md">
@@ -153,13 +297,13 @@
                         </svg>
                     </button>
                 </figure>
-                <div class="card-body h-full justify-start bg-base-200 bg-opacity-40 hover:bg-opacity-50 active:bg-opacity-60 transition-colors">
+                <div class="card-body grow-0 justify-start overflow-y-scroll">
                     <h2 class="card-title grow-0">Card Title</h2>
                     <p class="grow-0">555 Address Ave. City, State 00000</p>
                     <div class="flex flex-row justify-between">
-                        <p class="grow-0 flex flex-row gap-2 items-center">
+                        <p class="grow-0 flex flex-row gap-2 items-center text-warning">
                             4.6
-                            <span class="flex flex-row gap-0 items-center">
+                            <span class="flex flex-row gap-0 items-center text-transparent">
                                 <svg class="feather-sm fill-accent">
                                     <use href="./icons/feather-sprite.svg#star" />
                                 </svg>
@@ -183,22 +327,62 @@
                     <div class="collapse transition-all collapse-arrow bg-base-200">
                         <input type="radio" name="my-accordion" checked="checked" />
                         <div class="collapse-title text-xl font-medium">Info</div>
-                        <div class="collapse-content">
-                            <p>hello</p>
+                        <div class="collapse-content flex flex-col gap-2">
+                            <h4 class="text-lg">Description:</h4>
+                            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id tortor mauris. Cras ut ex ante. Donec nec est vitae velit porta lacinia a in eros. In et leo a elit aliquam commodo. Etiam in porta augue. Suspendisse sit amet viverra metus, dictum molestie sem. Duis lectus lorem, molestie eget est sed, facilisis lacinia tortor.</p>
+                            <small>Restaurant, Bar, etc...</small>
+                            <h4 class="text-xl">Price:</h4>
+                            <p class="price-level">Typically between...</p>
+                            <p class="payment-methods">Accepts Credit, Debit, Contactless</p>
+                            <svg class="feather-sm hidden" id="check">
+                                <use href="./icons/feather-sprite.svg#check" />
+                            </svg>
+                            <svg class="feather-sm hidden" id="x">
+                                <use href="./icons/feather-sprite.svg#x" />
+                            </svg>
+                            <div class="w-full info-grid grid grid-rows-5 grid-flow-col">
+                                <span class="breakfast flex flex-row items-center gap-1">Breakfast</span>
+                                <span class="brunch flex flex-row items-center gap-1">Brunch</span>
+                                <span class="lunch flex flex-row items-center gap-1">Lunch</span>
+                                <span class="dinner flex flex-row items-center gap-1">Dinner</span>
+                                <span class="cocktails flex flex-row items-center gap-1">Cocktails</span>
+                                <span class="dine-in flex flex-row items-center gap-1">Dine-in</span>
+                                <span class="reserve flex flex-row items-center gap-1">Reservations</span>
+                                <span class="takeout flex flex-row items-center gap-1">Takeout</span>
+                                <span class="deliver flex flex-row items-center gap-1">Delivery</span>
+                                <span class="pickup flex flex-row items-center gap-1">Curbside Pickup</span>
+                            </div>
                         </div>
                     </div>
                     <div class="collapse transition-all collapse-arrow bg-base-200">
                         <input type="radio" name="my-accordion" />
                         <div class="collapse-title text-xl font-medium">Contact</div>
                         <div class="collapse-content">
-                            <p>hello</p>
+                            <p class="break-words">hello</p>
                         </div>
                     </div>
                     <div class="collapse transition-all collapse-arrow bg-base-200">
                         <input type="radio" name="my-accordion" />
                         <div class="collapse-title text-xl font-medium">Reviews</div>
-                        <div class="collapse-content">
-                            <p>hello</p>
+                        <div class="collapse-content flex flex-col gap-4">
+                            <h4 class="text-lg font-bold grow-0">Top 5 Reviews:</h4>
+                            <div class="grow-0 reviews w-full flex flex-col gap-3">
+                                <div class="w-full flex flex-col gap-2">
+                                    <hr class="border-neutral" />
+                                    <div class="w-full flex flex-row justify-start gap-2">
+                                        <div class="avatar w-16 grow-0 shrink-0">
+                                            <div class="w-24 rounded-none">
+                                                <img alt="Author" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col gap-1 justify-center">
+                                            <a class="grow-0" href="${review}">${review.authorAttribution.displayName}</a>
+                                            <small class="grow-0">time ago</small>
+                                        </div>
+                                    </div>
+                                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id tortor mauris. Cras ut ex ante. Donec nec est vitae velit porta lacinia a in eros. In et leo a elit aliquam commodo. Etiam in porta augue. Suspendisse sit amet viverra metus, dictum molestie sem. Duis lectus lorem, molestie eget est sed, facilisis lacinia tortor.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

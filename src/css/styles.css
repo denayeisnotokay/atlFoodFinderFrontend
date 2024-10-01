@@ -20,6 +20,143 @@
         stroke-linecap: round;
         stroke-linejoin: round;
     }
+
+    .input {
+        @apply transition-colors;
+        @apply bg-base-200;
+        @apply flex items-center gap-2;
+    }
+
+    :not(details) > .input {
+        @apply hover:bg-neutral;
+        @apply focus-within:bg-base-300;
+    }
+
+    details > .input {
+        @apply hover:bg-neutral;
+        @apply select-none;
+    }
+
+    details[open] .input {
+        @apply hover:bg-neutral !important;
+        @apply bg-base-300 !important;
+    }
+
+    .scroll-shadow {
+        mask-image: linear-gradient(#000,#000,transparent 0,#000 40px,#000 calc(100% - 40px),transparent);
+    }
+
+    .scroll-shadow.bottom {
+        mask-image: linear-gradient(0deg,#000 calc(100% - 40px),transparent);
+    }
+
+    .scroll-shadow.top {
+        mask-image: linear-gradient(180deg,#000 calc(100% - 40px),transparent);
+    }
+
+    .collapse {
+        transition: flex-grow 0.25s ease, min-height 0.25s ease;
+        grid-template-rows: 3.75rem 0fr;
+        flex-grow: 0;
+        flex-shrink: 0;
+        min-height: 0;
+    }
+
+    .collapse:not(.collapse-close):has(> input[type="checkbox"]:checked), .collapse:not(.collapse-close):has(> input[type="radio"]:checked) {
+        grid-template-rows: 3.75rem 1fr;
+        flex-grow: 1;
+        min-height: max-content;
+    }
+
+    @media (hover: hover) {
+        @supports (color: oklch(0% 0 0)) {
+            .btn-ghost.btn-primary:hover {
+                background-color: var(--fallback-p,oklch(var(--p)/0.3));
+            }
+        }
+    }
+
+    @supports (color: oklch(0% 0 0)) {
+        .btn-ghost.btn-primary {
+            color: var(--fallback-p,oklch(var(--p)));
+        }
+    }
+
+    @media (hover: hover) {
+        @supports (color: oklch(0% 0 0)) {
+            .btn-ghost.btn-secondary:hover {
+                background-color: var(--fallback-s,oklch(var(--s)/0.3));
+            }
+        }
+    }
+
+    @supports (color: oklch(0% 0 0)) {
+        .btn-ghost.btn-secondary {
+            color: var(--fallback-s,oklch(var(--s)));
+        }
+    }
+
+    @media (hover: hover) {
+        @supports (color: oklch(0% 0 0)) {
+            .btn-ghost.btn-error:hover {
+                background-color: var(--fallback-s,oklch(var(--er)/0.3));
+            }
+        }
+    }
+
+    @supports (color: oklch(0% 0 0)) {
+        .btn-ghost.btn-error {
+            color: var(--fallback-s,oklch(var(--er)));
+        }
+    }
+
+    @media (hover: hover) {
+        @supports (color: oklch(0% 0 0)) {
+            .btn-flat.btn-primary:hover {
+                background-color: var(--fallback-p,oklch(var(--p)/0.75));
+            }
+        }
+    }
+
+    @supports (color: oklch(0% 0 0)) {
+        .btn-flat.btn-primary {
+            color: var(--fallback-pc,oklch(var(--pc)));
+            background-color: var(--fallback-p,oklch(var(--p)/0.5));
+            border: none;
+        }
+    }
+
+    @media (hover: hover) {
+        @supports (color: oklch(0% 0 0)) {
+            .btn-flat.btn-secondary:hover {
+                background-color: var(--fallback-s,oklch(var(--s)/0.75));
+            }
+        }
+    }
+
+    @supports (color: oklch(0% 0 0)) {
+        .btn-flat.btn-secondary {
+            color: var(--fallback-sc,oklch(var(--sc)));
+            background-color: var(--fallback-s,oklch(var(--s)/0.5));
+            border: none;
+        }
+    }
+
+    @media (hover: hover) {
+        @supports (color: oklch(0% 0 0)) {
+            details[open] > .btn-flat.btn-secondary:hover {
+                opacity: 0.9;
+            }
+        }
+    }
+
+    @supports (color: oklch(0% 0 0)) {
+        details[open] > .btn-flat.btn-secondary {
+            color: var(--fallback-sc,oklch(var(--sc)));
+            background-color: var(--fallback-s,oklch(var(--s)/1));
+            box-shadow: 0 0 0.5rem var(--fallback-s,oklch(var(--s)/1));
+        }
+    }
 }
 
 @media (hover: hover) {
@@ -30,50 +167,8 @@
     }
 }
 
-details[open] summary svg {
+details[open] summary svg.chevron {
     transform: rotate(180deg);
-}
-
-@media (hover: hover) {
-    @supports (color: oklch(0% 0 0)) {
-        .btn-ghost.btn-primary:hover {
-            background-color: var(--fallback-p,oklch(var(--p)/0.3));
-        }
-    }
-}
-
-@supports (color: oklch(0% 0 0)) {
-    .btn-ghost.btn-primary {
-        color: var(--fallback-p,oklch(var(--p)));
-    }
-}
-
-@media (hover: hover) {
-    @supports (color: oklch(0% 0 0)) {
-        .btn-ghost.btn-secondary:hover {
-            background-color: var(--fallback-s,oklch(var(--s)/0.3));
-        }
-    }
-}
-
-@supports (color: oklch(0% 0 0)) {
-    .btn-ghost.btn-secondary {
-        color: var(--fallback-s,oklch(var(--s)));
-    }
-}
-
-@media (hover: hover) {
-    @supports (color: oklch(0% 0 0)) {
-        .btn-ghost.btn-error:hover {
-            background-color: var(--fallback-s,oklch(var(--er)/0.3));
-        }
-    }
-}
-
-@supports (color: oklch(0% 0 0)) {
-    .btn-ghost.btn-error {
-        color: var(--fallback-s,oklch(var(--er)));
-    }
 }
 
 details ul {
@@ -84,25 +179,28 @@ details[open] ul {
     opacity: 1;
 }
 
-.scroll-shadow {
-    mask-image: linear-gradient(#000,#000,transparent 0,#000 40px,#000 calc(100% - 40px),transparent);
+.menu > li:has(input[type="checkbox"]:checked) > label {
+    @apply bg-base-300;
 }
 
-.scroll-shadow.bottom {
-    mask-image: linear-gradient(0deg,#000 calc(100% - 40px),transparent);
+.menu > li:has(input[type="radio"]:checked) > label {
+    @apply bg-base-300;
 }
 
-.scroll-shadow.top {
-    mask-image: linear-gradient(180deg,#000 calc(100% - 40px),transparent);
+.menu > li:has(input[type="checkbox"]) > label > svg {
+    @apply opacity-0;
+    @apply transition-opacity;
 }
 
-.collapse {
-    transition: flex-grow 0.25s ease;
-    grid-template-rows: 3.75rem 0fr;
-    flex-grow: 0;
+.menu > li:has(input[type="radio"]) > label > svg {
+    @apply opacity-0;
+    @apply transition-opacity;
 }
 
-.collapse:not(.collapse-close):has(> input[type="checkbox"]:checked), .collapse:not(.collapse-close):has(> input[type="radio"]:checked) {
-    grid-template-rows: 3.75rem 1fr;
-    flex-grow: 1;
+.menu > li:has(input[type="checkbox"]:checked) > label > svg {
+    @apply opacity-100;
+}
+
+.menu > li:has(input[type="radio"]:checked) > label > svg {
+    @apply opacity-100;
 }
