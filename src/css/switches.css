@@ -1,0 +1,47 @@
+/* From Uiverse.io by vinodjangid07 */
+
+/* To hide the checkbox */
+.switch > input[type="checkbox"] {
+    display: none;
+}
+
+.switch {
+    --color-on: rgb(148, 118, 255);
+    --color-off: rgb(82, 82, 82);
+    --handle-color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 2.75rem;
+    height: 1.5rem;
+    background-color: var(--color-off);
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition-duration: .2s;
+}
+
+.switch::after {
+    content: "";
+    position: absolute;
+    top: 0.25rem;
+    bottom: 0.25rem;
+    left: 0.25rem;
+    width: 1rem;
+    background-color: transparent;
+    border-radius: 50%;
+    transition-duration: .2s;
+    border: 0.25rem solid var(--handle-color);
+}
+
+.switch:has(input[type="checkbox"]:checked)::after {
+    transform: translateX(1.25rem);
+    transition-duration: .2s;
+    background-color: var(--handle-color);
+}
+/* Switch background change */
+.switch:has(input[type="checkbox"]:checked) {
+    background-color: var(--color-on);
+    transition-duration: .2s;
+}

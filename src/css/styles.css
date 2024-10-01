@@ -154,8 +154,51 @@
         details[open] > .btn-flat.btn-secondary {
             color: var(--fallback-sc,oklch(var(--sc)));
             background-color: var(--fallback-s,oklch(var(--s)/1));
-            box-shadow: 0 0 0.5rem var(--fallback-s,oklch(var(--s)/1));
+            box-shadow: 0 0 0.5rem var(--fallback-s,oklch(var(--s)/0.5));
         }
+    }
+
+    @supports (color: oklch(0% 0 0)) {
+        .slider {
+            --track-color: var(--fallback-b2,oklch(var(--b2)/1)) !important;
+        }
+
+        .slider-secondary {
+            color: var(--fallback-s,oklch(var(--s)/1));
+        }
+
+        .min-slider::-moz-range-progress {
+            background: var(--fallback-b2,oklch(var(--b2)/1)) !important;
+        }
+
+        .switch-secondary {
+            --color-off: var(--fallback-b2,oklch(var(--b2)/1)) !important;
+            --color-on: var(--fallback-s,oklch(var(--s)/1)) !important;
+            --handle-color: var(--fallback-sc,oklch(var(--sc)/1)) !important;
+        }
+    }
+
+    .min-slider, .max-slider {
+        position: absolute !important;
+        @apply inset-0 pointer-events-none;
+    }
+
+    .max-slider {
+        z-index: 0;
+    }
+
+    .min-slider {
+        --track-color: rgba(0, 0, 0, 0) !important;
+        z-index: 1;
+    }
+
+    .min-slider::-webkit-slider-thumb, .max-slider::-webkit-slider-thumb, .min-slider::-moz-range-thumb, .max-slider::-moz-range-thumb {
+        z-index: 2;
+        @apply: bg-secondary;
+    }
+
+    .min-slider:hover::-moz-range-progress, .min-slider:active::-moz-range-progress, .max-slider:hover::-moz-range-progress, .max-slider:active::-moz-range-progress {
+        filter: none !important;
     }
 }
 
@@ -179,28 +222,24 @@ details[open] ul {
     opacity: 1;
 }
 
-.menu > li:has(input[type="checkbox"]:checked) > label {
+.menu > li:has(input[type="checkbox"]:checked) > label, .menu > li:has(input[type="radio"]:checked) > label {
     @apply bg-base-300;
 }
 
-.menu > li:has(input[type="radio"]:checked) > label {
-    @apply bg-base-300;
-}
-
-.menu > li:has(input[type="checkbox"]) > label > svg {
+.menu > li:has(input[type="checkbox"]) > label > svg, .menu > li:has(input[type="radio"]) > label > svg {
     @apply opacity-0;
     @apply transition-opacity;
 }
 
-.menu > li:has(input[type="radio"]) > label > svg {
-    @apply opacity-0;
-    @apply transition-opacity;
-}
-
-.menu > li:has(input[type="checkbox"]:checked) > label > svg {
+.menu > li:has(input[type="checkbox"]:checked) > label > svg, .menu > li:has(input[type="radio"]:checked) > label > svg {
     @apply opacity-100;
 }
 
-.menu > li:has(input[type="radio"]:checked) > label > svg {
-    @apply opacity-100;
+.tooltip:has(input[type="range"]) {
+    --slider-progress: 0;
+}
+
+.tooltip:has(input[type="range"])::before, .tooltip:has(input[type="range"])::after {
+    @apply absolute -translate-x-1/2;
+    left: calc(var(--slider-progress) * (100% - 1.25rem) + 0.625rem);
 }
